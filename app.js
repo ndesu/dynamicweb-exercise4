@@ -2,9 +2,11 @@ const express = require('express')
 const app = express()
 const port = 4000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+const indexRoute = require('./routes/index')
+const aboutRoute = require('./routes/about')
+
+app.use('/', indexRoute)
+app.use('/about', aboutRoute)
 
 app.use(express.static("public"))
 
